@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_SpectrumAssignment_SpectrumAssignmentUITests : NSObject
+@end
+@implementation PodsDummy_Pods_SpectrumAssignment_SpectrumAssignmentUITests
+@end

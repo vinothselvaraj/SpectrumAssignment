@@ -1,0 +1,6 @@
+framework module Pods_SpectrumAssignmentTests {
+  umbrella header "Pods-SpectrumAssignmentTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
