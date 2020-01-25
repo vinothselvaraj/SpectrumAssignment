@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,12 @@
 		841C570923DB314500B0B862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841C570723DB314500B0B862 /* LaunchScreen.storyboard */; };
 		841C571423DB314500B0B862 /* SpectrumAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C571323DB314500B0B862 /* SpectrumAssignmentTests.swift */; };
 		841C571F23DB314500B0B862 /* SpectrumAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C571E23DB314500B0B862 /* SpectrumAssignmentUITests.swift */; };
+		841C572D23DB3D5A00B0B862 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C572C23DB3D5900B0B862 /* NetworkManager.swift */; };
+		841C573323DBF79500B0B862 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C573223DBF79500B0B862 /* Name.swift */; };
+		841C573523DBF7AE00B0B862 /* MemberDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C573423DBF7AE00B0B862 /* MemberDetails.swift */; };
+		841C573723DBF9FF00B0B862 /* CompanyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C573623DBF9FF00B0B862 /* CompanyDetails.swift */; };
+		841C573C23DC090900B0B862 /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C573A23DC090900B0B862 /* CompanyTableViewCell.swift */; };
+		841C573D23DC090900B0B862 /* CompanyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841C573B23DC090900B0B862 /* CompanyTableViewCell.xib */; };
 		ACEFBEBE283EFBB32269614A /* Pods_SpectrumAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BE61E1DD620DDAD65FB790 /* Pods_SpectrumAssignment.framework */; };
 		C2DFCB67CF63D9F3A7D5725C /* Pods_SpectrumAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C4DD76CD46C9514FEB829 /* Pods_SpectrumAssignmentTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +61,12 @@
 		841C571A23DB314500B0B862 /* SpectrumAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectrumAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		841C571E23DB314500B0B862 /* SpectrumAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumAssignmentUITests.swift; sourceTree = "<group>"; };
 		841C572023DB314600B0B862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		841C572C23DB3D5900B0B862 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		841C573223DBF79500B0B862 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
+		841C573423DBF7AE00B0B862 /* MemberDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetails.swift; sourceTree = "<group>"; };
+		841C573623DBF9FF00B0B862 /* CompanyDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetails.swift; sourceTree = "<group>"; };
+		841C573A23DC090900B0B862 /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
+		841C573B23DC090900B0B862 /* CompanyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyTableViewCell.xib; sourceTree = "<group>"; };
 		A37C4DD76CD46C9514FEB829 /* Pods_SpectrumAssignmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpectrumAssignmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C450D97A9FEB4B2BA7C75BA1 /* Pods-SpectrumAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumAssignment.release.xcconfig"; path = "Target Support Files/Pods-SpectrumAssignment/Pods-SpectrumAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		D3F2567706443D3F92A6E9D8 /* Pods-SpectrumAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumAssignment.debug.xcconfig"; path = "Target Support Files/Pods-SpectrumAssignment/Pods-SpectrumAssignment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,7 +111,6 @@
 				2A9AF2ED28A472B339E952B2 /* Pods-SpectrumAssignmentTests.debug.xcconfig */,
 				4408C732EB08FC2FBAB85784 /* Pods-SpectrumAssignmentTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -130,6 +141,12 @@
 			children = (
 				841C56FE23DB314300B0B862 /* AppDelegate.swift */,
 				841C570023DB314300B0B862 /* ViewController.swift */,
+				841C572C23DB3D5900B0B862 /* NetworkManager.swift */,
+				841C573623DBF9FF00B0B862 /* CompanyDetails.swift */,
+				841C573423DBF7AE00B0B862 /* MemberDetails.swift */,
+				841C573223DBF79500B0B862 /* Name.swift */,
+				841C573A23DC090900B0B862 /* CompanyTableViewCell.swift */,
+				841C573B23DC090900B0B862 /* CompanyTableViewCell.xib */,
 				841C570223DB314300B0B862 /* Main.storyboard */,
 				841C570523DB314500B0B862 /* Assets.xcassets */,
 				841C570723DB314500B0B862 /* LaunchScreen.storyboard */,
@@ -278,6 +295,7 @@
 				841C570923DB314500B0B862 /* LaunchScreen.storyboard in Resources */,
 				841C570623DB314500B0B862 /* Assets.xcassets in Resources */,
 				841C570423DB314300B0B862 /* Main.storyboard in Resources */,
+				841C573D23DC090900B0B862 /* CompanyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,8 +423,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841C573723DBF9FF00B0B862 /* CompanyDetails.swift in Sources */,
+				841C572D23DB3D5A00B0B862 /* NetworkManager.swift in Sources */,
 				841C570123DB314300B0B862 /* ViewController.swift in Sources */,
+				841C573523DBF7AE00B0B862 /* MemberDetails.swift in Sources */,
+				841C573323DBF79500B0B862 /* Name.swift in Sources */,
 				841C56FF23DB314300B0B862 /* AppDelegate.swift in Sources */,
+				841C573C23DC090900B0B862 /* CompanyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,10 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private let networkManager = NetworkManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("Hello")
+        
+        networkManager.getCompanyDetails { (Response, error) in
+            if let error = error {
+                print("Get Response error: \(error.localizedDescription)")
+                return
+            }
+            guard let Response = Response  else { return }
+            print("Current Response Object:")
+            print(Response)
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
