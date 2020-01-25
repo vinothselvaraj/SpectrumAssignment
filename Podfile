@@ -7,6 +7,7 @@ target 'SpectrumAssignment' do
 
   pod 'Alamofire', '~> 4.7.0'
   pod 'SwiftyJSON', '~> 4.0.0'
+  pod 'SDWebImage', '~> 5.0'
 
   # Pods for SpectrumAssignment
 

@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct CompanyDetails:Codable {
+class CompanyDetails:Codable {
     let _id:String
     let company:String
     let website:String
     let logo:String
     let about:String
     let members:[MemberDetails]
-    let favorite:Bool?
+    var favorite:Bool?
+    var follow:Bool?
 }

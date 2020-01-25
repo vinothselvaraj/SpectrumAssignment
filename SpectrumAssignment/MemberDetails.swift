@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MemberDetails:Codable {
+class MemberDetails:Codable {
     let _id:String
     let age:Int
     let name:name

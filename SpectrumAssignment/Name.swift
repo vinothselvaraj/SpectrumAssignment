@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct name:Codable {
+class name:Codable {
     let first:String
     let last:String
 }

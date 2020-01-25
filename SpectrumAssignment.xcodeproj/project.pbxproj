@@ -21,6 +21,11 @@
 		841C573723DBF9FF00B0B862 /* CompanyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C573623DBF9FF00B0B862 /* CompanyDetails.swift */; };
 		841C573C23DC090900B0B862 /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C573A23DC090900B0B862 /* CompanyTableViewCell.swift */; };
 		841C573D23DC090900B0B862 /* CompanyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841C573B23DC090900B0B862 /* CompanyTableViewCell.xib */; };
+		841C573F23DC283900B0B862 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C573E23DC283800B0B862 /* MemberViewController.swift */; };
+		841C574223DC290C00B0B862 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C574023DC290C00B0B862 /* MemberTableViewCell.swift */; };
+		841C574323DC290C00B0B862 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841C574123DC290C00B0B862 /* MemberTableViewCell.xib */; };
+		841C574923DC45F000B0B862 /* UnFav_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 841C574723DC45F000B0B862 /* UnFav_image.png */; };
+		841C574A23DC45F000B0B862 /* fav_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 841C574823DC45F000B0B862 /* fav_image.png */; };
 		ACEFBEBE283EFBB32269614A /* Pods_SpectrumAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BE61E1DD620DDAD65FB790 /* Pods_SpectrumAssignment.framework */; };
 		C2DFCB67CF63D9F3A7D5725C /* Pods_SpectrumAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C4DD76CD46C9514FEB829 /* Pods_SpectrumAssignmentTests.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +72,11 @@
 		841C573623DBF9FF00B0B862 /* CompanyDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetails.swift; sourceTree = "<group>"; };
 		841C573A23DC090900B0B862 /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
 		841C573B23DC090900B0B862 /* CompanyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyTableViewCell.xib; sourceTree = "<group>"; };
+		841C573E23DC283800B0B862 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		841C574023DC290C00B0B862 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
+		841C574123DC290C00B0B862 /* MemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberTableViewCell.xib; sourceTree = "<group>"; };
+		841C574723DC45F000B0B862 /* UnFav_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnFav_image.png; sourceTree = "<group>"; };
+		841C574823DC45F000B0B862 /* fav_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fav_image.png; sourceTree = "<group>"; };
 		A37C4DD76CD46C9514FEB829 /* Pods_SpectrumAssignmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpectrumAssignmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C450D97A9FEB4B2BA7C75BA1 /* Pods-SpectrumAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumAssignment.release.xcconfig"; path = "Target Support Files/Pods-SpectrumAssignment/Pods-SpectrumAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		D3F2567706443D3F92A6E9D8 /* Pods-SpectrumAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumAssignment.debug.xcconfig"; path = "Target Support Files/Pods-SpectrumAssignment/Pods-SpectrumAssignment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,13 +150,17 @@
 			isa = PBXGroup;
 			children = (
 				841C56FE23DB314300B0B862 /* AppDelegate.swift */,
+				841C574623DC45F000B0B862 /* Images */,
 				841C570023DB314300B0B862 /* ViewController.swift */,
+				841C573E23DC283800B0B862 /* MemberViewController.swift */,
 				841C572C23DB3D5900B0B862 /* NetworkManager.swift */,
 				841C573623DBF9FF00B0B862 /* CompanyDetails.swift */,
 				841C573423DBF7AE00B0B862 /* MemberDetails.swift */,
 				841C573223DBF79500B0B862 /* Name.swift */,
 				841C573A23DC090900B0B862 /* CompanyTableViewCell.swift */,
 				841C573B23DC090900B0B862 /* CompanyTableViewCell.xib */,
+				841C574023DC290C00B0B862 /* MemberTableViewCell.swift */,
+				841C574123DC290C00B0B862 /* MemberTableViewCell.xib */,
 				841C570223DB314300B0B862 /* Main.storyboard */,
 				841C570523DB314500B0B862 /* Assets.xcassets */,
 				841C570723DB314500B0B862 /* LaunchScreen.storyboard */,
@@ -171,6 +185,15 @@
 				841C572023DB314600B0B862 /* Info.plist */,
 			);
 			path = SpectrumAssignmentUITests;
+			sourceTree = "<group>";
+		};
+		841C574623DC45F000B0B862 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				841C574723DC45F000B0B862 /* UnFav_image.png */,
+				841C574823DC45F000B0B862 /* fav_image.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		EECA897A08E02133E42F4018 /* Frameworks */ = {
@@ -294,8 +317,11 @@
 			files = (
 				841C570923DB314500B0B862 /* LaunchScreen.storyboard in Resources */,
 				841C570623DB314500B0B862 /* Assets.xcassets in Resources */,
+				841C574923DC45F000B0B862 /* UnFav_image.png in Resources */,
 				841C570423DB314300B0B862 /* Main.storyboard in Resources */,
+				841C574A23DC45F000B0B862 /* fav_image.png in Resources */,
 				841C573D23DC090900B0B862 /* CompanyTableViewCell.xib in Resources */,
+				841C574323DC290C00B0B862 /* MemberTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +453,8 @@
 				841C572D23DB3D5A00B0B862 /* NetworkManager.swift in Sources */,
 				841C570123DB314300B0B862 /* ViewController.swift in Sources */,
 				841C573523DBF7AE00B0B862 /* MemberDetails.swift in Sources */,
+				841C574223DC290C00B0B862 /* MemberTableViewCell.swift in Sources */,
+				841C573F23DC283900B0B862 /* MemberViewController.swift in Sources */,
 				841C573323DBF79500B0B862 /* Name.swift in Sources */,
 				841C56FF23DB314300B0B862 /* AppDelegate.swift in Sources */,
 				841C573C23DC090900B0B862 /* CompanyTableViewCell.swift in Sources */,
@@ -605,14 +633,16 @@
 			baseConfigurationReference = D3F2567706443D3F92A6E9D8 /* Pods-SpectrumAssignment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = CMDH2UACV7;
 				INFOPLIST_FILE = SpectrumAssignment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SpectrumAssignment;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hubbell.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Hubbell-Inc-Dev-Wildcard-Profile";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -623,14 +653,16 @@
 			baseConfigurationReference = C450D97A9FEB4B2BA7C75BA1 /* Pods-SpectrumAssignment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SpectrumAssignment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SpectrumAssignment;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hubbell.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
