@@ -247,7 +247,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             DispatchQueue.main.async {
                 self.companyListTableView.isHidden = false
                 self.companyListTableView.reloadData()
-
             }
         }
         // Do any additional setup after loading the view, typically from a nib.

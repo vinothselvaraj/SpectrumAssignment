@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" barStyle="black" placeholder="Company name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ae3-8Y-ZsQ">
-                                <rect key="frame" x="0.0" y="64" width="263" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="282" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Eqb-fQ-i9L"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvf-6C-iky">
-                                <rect key="frame" x="262.5" y="64" width="112.5" height="56"/>
+                                <rect key="frame" x="281.5" y="64" width="93.5" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +62,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="Vvf-6C-iky" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AnJ-zR-zmS"/>
-                            <constraint firstItem="Ae3-8Y-ZsQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="F8J-PK-HUa"/>
+                            <constraint firstItem="Ae3-8Y-ZsQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="F8J-PK-HUa"/>
                             <constraint firstItem="Vvf-6C-iky" firstAttribute="height" secondItem="Ae3-8Y-ZsQ" secondAttribute="height" id="R4S-Ci-SbT"/>
                             <constraint firstItem="Vvf-6C-iky" firstAttribute="leading" secondItem="Ae3-8Y-ZsQ" secondAttribute="trailing" symbolic="YES" id="Tnq-SW-cq8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vvf-6C-iky" secondAttribute="trailing" id="U0g-IG-KPO"/>

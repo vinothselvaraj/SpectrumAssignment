@@ -19,6 +19,7 @@ class CompanyTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .none
         followButton.layer.masksToBounds = true
         followButton.layer.cornerRadius = 3
         followButton.layer.borderWidth = 1.0
@@ -31,7 +32,6 @@ class CompanyTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

@@ -38,9 +38,9 @@ class MemberViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
 
         cell.nameLabel.text = "\(memberDetail!.name.first) \(memberDetail!.name.last)"
-        cell.PhoneText.text = "Phone: \(memberDetail!.phone)"
-        cell.emailText.text = "Email: \(memberDetail!.email)"
-        cell.ageLabel.text = "Age: \(memberDetail!.age)"
+        cell.PhoneText.text = "Phone : \(memberDetail!.phone)"
+        cell.emailText.text = "Email : \(memberDetail!.email)"
+        cell.ageLabel.text = "Age : \(memberDetail!.age)"
         if let favourite = memberDetail!.favorite {
             cell.favButton.isSelected = favourite
         }else{
