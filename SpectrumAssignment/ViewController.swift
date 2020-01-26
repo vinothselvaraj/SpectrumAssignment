@@ -18,6 +18,44 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var errorLabel: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("Hello")
+        companyListTableView.register(UINib(nibName: "CompanyTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyTableViewCell")
+        
+        companyListTableView.isHidden = true
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.title = "SPECTRUM"
+        networkManager.getCompanyDetails { (Response, error) in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
+            if let error = error {
+                print("Get Response error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = "Error in loading..."
+                }
+                return
+            }
+            guard let Response = Response  else { return }
+            
+            CommomManager.CompanyListArray = Response
+            self.companyList = CommomManager.CompanyListArray
+            print("Current Response Object:")
+            print(Response)
+            DispatchQueue.main.async {
+                self.companyListTableView.isHidden = false
+                self.companyListTableView.reloadData()
+            }
+        }
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    // MARK: TableView Delegates and DataSource
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView.tag == 1 {
@@ -84,7 +122,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //        memberVC.selectedCompanyTag = indexPath.row
         self.navigationController?.pushViewController(memberVC, animated: true)
     }
-
+    
+    // MARK: SearchBar Delegates
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
@@ -119,7 +159,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         companyListTableView.reloadData()
 
     }
-    
+    /// Function for Follow button tapped
     @IBAction func followTapped(_ sender: UIButton) {
 
         if sender.isSelected {
@@ -155,6 +195,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     }
     
+    /// Function for favourite button tapped
     @IBAction func favoriteTapped(_ sender: UIButton) {
         
         if sender.isSelected {
@@ -185,6 +226,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     }
 
+    /// function for Sorting button Tapped
     @IBAction func sortingTapped(_ sender: UIButton) {
         
         if companyList.count > 0{
@@ -217,42 +259,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        print("Hello")
-        companyListTableView.register(UINib(nibName: "CompanyTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyTableViewCell")
-
-        companyListTableView.isHidden = true
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.startAnimating()
-        self.title = "SPECTRUM"
-        networkManager.getCompanyDetails { (Response, error) in
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-            }
-            if let error = error {
-                print("Get Response error: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = "Error in loading..."
-                }
-                return
-            }
-            guard let Response = Response  else { return }
-            
-            CommomManager.CompanyListArray = Response
-            self.companyList = CommomManager.CompanyListArray
-            print("Current Response Object:")
-            print(Response)
-            DispatchQueue.main.async {
-                self.companyListTableView.isHidden = false
-                self.companyListTableView.reloadData()
-            }
-        }
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
 
 }
 

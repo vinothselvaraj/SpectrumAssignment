@@ -19,6 +19,32 @@ class MemberViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet weak var nameSOrtButton: UIButton!
     @IBOutlet weak var ageSortButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        memberTableView.register(UINib(nibName: "MemberTableViewCell", bundle: nil), forCellReuseIdentifier: "MemberTableViewCell")
+        
+        //        companyDetails = CommomManager.CompanyListArray[selectedCompanyTag!]
+        if let companyName = companyDetails?.company{
+            
+            self.title = companyName
+            
+        }
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let members = companyDetails?.members {
+            memberList = members
+            memberTableView.reloadData()
+        }
+        
+    }
+    
+    // MARK: - TableView Delegates and DataSource
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView.tag == 1 {
@@ -57,6 +83,9 @@ class MemberViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    // MARK: - SearchBar Delegates
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         searchBar.resignFirstResponder()
@@ -87,6 +116,8 @@ class MemberViewController: UIViewController,UITableViewDelegate,UITableViewData
         memberTableView.reloadData()
 
     }
+    
+    ///Function for  Name Sorting button Tapped Action
     @IBAction func nameSortTapped(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
@@ -114,6 +145,7 @@ class MemberViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
 
     }
+    /// Function for Age Sorting button tapped action
     @IBAction func ageSortTapped(_ sender: UIButton) {
         
         if sender.isSelected {
@@ -138,7 +170,7 @@ class MemberViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
 
     }
-    
+    /// Function for Favourite button tapped Action
     @IBAction func favoriteTapped(_ sender: UIButton) {
         
         if sender.isSelected {
@@ -172,29 +204,6 @@ class MemberViewController: UIViewController,UITableViewDelegate,UITableViewData
         print(memberDetail)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        memberTableView.register(UINib(nibName: "MemberTableViewCell", bundle: nil), forCellReuseIdentifier: "MemberTableViewCell")
-
-//        companyDetails = CommomManager.CompanyListArray[selectedCompanyTag!]
-        if let companyName = companyDetails?.company{
-            
-            self.title = companyName
-
-        }
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let members = companyDetails?.members {
-            memberList = members
-            memberTableView.reloadData()
-        }
-
-    }
 
     /*
     // MARK: - Navigation

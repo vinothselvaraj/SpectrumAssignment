@@ -11,10 +11,8 @@ import Alamofire
 
 class NetworkManager {
 
-    let stubDataURL = "https://next.json-generator.com/api/json/get/Vk-LhK44U"
-    
     func getCompanyDetails(completion: @escaping (_ CompanyDetails: [CompanyDetails]?, _ error: Error?) -> Void) {
-        getJSONFromURL(urlString: stubDataURL) { (data, error) in
+        getJSONFromURL(urlString: dataURL) { (data, error) in
             guard let data = data, error == nil else {
                 print("Failed to get data")
                 return completion(nil, error)
@@ -57,8 +55,8 @@ extension NetworkManager {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let weather = try decoder.decode([CompanyDetails].self, from: json)
-            return completion(weather, nil)
+            let response = try decoder.decode([CompanyDetails].self, from: json)
+            return completion(response, nil)
         } catch let error {
             print("Error creating current weather from JSON because: \(error.localizedDescription)")
             return completion(nil, error)
