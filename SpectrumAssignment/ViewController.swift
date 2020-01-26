@@ -68,6 +68,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         cell.companyImage.sd_setImage(with: URL(string: companyDetail!.logo), placeholderImage: UIImage(named: "placeholder.png"))
 
+
         return cell
     }
     

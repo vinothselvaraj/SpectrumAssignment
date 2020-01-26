@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" placeholder="Company name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ae3-8Y-ZsQ">
-                                <rect key="frame" x="0.0" y="64" width="282" height="56"/>
+                            <searchBar contentMode="redraw" barStyle="black" placeholder="Name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ae3-8Y-ZsQ">
+                                <rect key="frame" x="0.0" y="64" width="281.5" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Eqb-fQ-i9L"/>
                                 </constraints>
@@ -28,9 +28,10 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="3xv-8B-nI5"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RCS-Vz-P35">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RCS-Vz-P35">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="NbJ-Rw-P6G"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cxR-B5-4dV"/>

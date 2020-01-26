@@ -62,22 +62,33 @@
                         </state>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="www.google.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HR3-UV-azR">
-                        <rect key="frame" x="80" y="27" width="121" height="33"/>
+                        <rect key="frame" x="80" y="32" width="121" height="33"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE2-Wl-5d4">
+                        <rect key="frame" x="0.0" y="195.5" width="368" height="1"/>
+                        <color key="backgroundColor" red="0.38431372549999998" green="0.37254901959999998" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="6Lc-rq-uvm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                 <constraints>
                     <constraint firstItem="g2g-5e-Jzk" firstAttribute="trailing" secondItem="BiY-Oc-S7b" secondAttribute="trailing" id="0zl-d7-Hn4"/>
+                    <constraint firstItem="HR3-UV-azR" firstAttribute="top" secondItem="Mme-xk-N9K" secondAttribute="bottom" constant="2" id="14u-jq-P8X"/>
                     <constraint firstItem="g2g-5e-Jzk" firstAttribute="leading" secondItem="a88-Vg-P7r" secondAttribute="leading" id="2Py-ni-oyb"/>
                     <constraint firstAttribute="bottom" secondItem="g2g-5e-Jzk" secondAttribute="bottom" constant="10" id="39N-WV-pN0"/>
                     <constraint firstAttribute="trailing" secondItem="BiY-Oc-S7b" secondAttribute="trailing" constant="10" id="4Ao-sb-021"/>
-                    <constraint firstItem="HR3-UV-azR" firstAttribute="bottom" secondItem="a88-Vg-P7r" secondAttribute="bottom" id="A3z-wl-b4l"/>
                     <constraint firstItem="a88-Vg-P7r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="CbY-js-RYM"/>
+                    <constraint firstAttribute="bottom" secondItem="XE2-Wl-5d4" secondAttribute="bottom" id="DBJ-eK-ylC"/>
                     <constraint firstItem="g2g-5e-Jzk" firstAttribute="top" secondItem="a88-Vg-P7r" secondAttribute="bottom" constant="15" id="Gc6-QB-gts"/>
                     <constraint firstItem="SG1-Hd-uqg" firstAttribute="leading" secondItem="Mme-xk-N9K" secondAttribute="trailing" constant="20" id="HSo-YN-Tog"/>
                     <constraint firstItem="HR3-UV-azR" firstAttribute="leading" secondItem="Mme-xk-N9K" secondAttribute="leading" id="NAW-NB-Uxq"/>
@@ -86,6 +97,8 @@
                     <constraint firstItem="Mme-xk-N9K" firstAttribute="leading" secondItem="a88-Vg-P7r" secondAttribute="trailing" constant="15" id="bNf-Yv-Xng"/>
                     <constraint firstItem="a88-Vg-P7r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="hi2-Pt-UsX"/>
                     <constraint firstItem="Mme-xk-N9K" firstAttribute="top" secondItem="a88-Vg-P7r" secondAttribute="top" id="uYI-aS-Vf2"/>
+                    <constraint firstItem="XE2-Wl-5d4" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="uYs-5v-br6"/>
+                    <constraint firstItem="XE2-Wl-5d4" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ul3-9R-iWZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
