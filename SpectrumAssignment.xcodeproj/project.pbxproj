@@ -157,18 +157,12 @@
 			children = (
 				841C56FE23DB314300B0B862 /* AppDelegate.swift */,
 				841C574623DC45F000B0B862 /* Images */,
-				841C570023DB314300B0B862 /* ViewController.swift */,
-				841C573E23DC283800B0B862 /* MemberViewController.swift */,
+				841C575423DD600B00B0B862 /* Controller */,
 				841C572C23DB3D5900B0B862 /* NetworkManager.swift */,
 				841C574F23DD5DA300B0B862 /* Constants.swift */,
 				841C574B23DC8C7200B0B862 /* CommomManager.swift */,
-				841C573623DBF9FF00B0B862 /* CompanyDetails.swift */,
-				841C573423DBF7AE00B0B862 /* MemberDetails.swift */,
-				841C573223DBF79500B0B862 /* Name.swift */,
-				841C573A23DC090900B0B862 /* CompanyTableViewCell.swift */,
-				841C573B23DC090900B0B862 /* CompanyTableViewCell.xib */,
-				841C574023DC290C00B0B862 /* MemberTableViewCell.swift */,
-				841C574123DC290C00B0B862 /* MemberTableViewCell.xib */,
+				841C575123DD5F9800B0B862 /* Model */,
+				841C575323DD5FDB00B0B862 /* CustomCell */,
 				841C570223DB314300B0B862 /* Main.storyboard */,
 				841C570523DB314500B0B862 /* Assets.xcassets */,
 				841C570723DB314500B0B862 /* LaunchScreen.storyboard */,
@@ -203,6 +197,36 @@
 				841C574D23DCA2C700B0B862 /* Launch.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		841C575123DD5F9800B0B862 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				841C573623DBF9FF00B0B862 /* CompanyDetails.swift */,
+				841C573223DBF79500B0B862 /* Name.swift */,
+				841C573423DBF7AE00B0B862 /* MemberDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		841C575323DD5FDB00B0B862 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				841C573A23DC090900B0B862 /* CompanyTableViewCell.swift */,
+				841C573B23DC090900B0B862 /* CompanyTableViewCell.xib */,
+				841C574023DC290C00B0B862 /* MemberTableViewCell.swift */,
+				841C574123DC290C00B0B862 /* MemberTableViewCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		841C575423DD600B00B0B862 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				841C570023DB314300B0B862 /* ViewController.swift */,
+				841C573E23DC283800B0B862 /* MemberViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		EECA897A08E02133E42F4018 /* Frameworks */ = {
