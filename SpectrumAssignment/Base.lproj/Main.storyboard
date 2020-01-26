@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search by Company name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ae3-8Y-ZsQ">
-                                <rect key="frame" x="0.0" y="64" width="262.5" height="56"/>
+                            <searchBar contentMode="redraw" barStyle="black" placeholder="Company name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ae3-8Y-ZsQ">
+                                <rect key="frame" x="0.0" y="64" width="263" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Eqb-fQ-i9L"/>
                                 </constraints>
@@ -30,7 +30,7 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RCS-Vz-P35">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="NbJ-Rw-P6G"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cxR-B5-4dV"/>
@@ -42,14 +42,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="SORT ⇵">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="sortingTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uu5-Rr-6i2"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="O35-C5-jfw">
+                                <rect key="frame" x="170" y="316" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error in Loading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toY-Fh-tYa">
+                                <rect key="frame" x="37.5" y="353" width="300" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="Vvf-6C-iky" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AnJ-zR-zmS"/>
                             <constraint firstItem="Ae3-8Y-ZsQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="F8J-PK-HUa"/>
@@ -57,7 +67,10 @@
                             <constraint firstItem="Vvf-6C-iky" firstAttribute="leading" secondItem="Ae3-8Y-ZsQ" secondAttribute="trailing" symbolic="YES" id="Tnq-SW-cq8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vvf-6C-iky" secondAttribute="trailing" id="U0g-IG-KPO"/>
                             <constraint firstItem="RCS-Vz-P35" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="UU4-ur-g6Y"/>
+                            <constraint firstItem="toY-Fh-tYa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Wed-xQ-dOd"/>
+                            <constraint firstItem="toY-Fh-tYa" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dLE-I4-CCG"/>
                             <constraint firstItem="Ae3-8Y-ZsQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gQs-u4-UOC"/>
+                            <constraint firstItem="toY-Fh-tYa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="ifC-Ta-JT0"/>
                             <constraint firstItem="RCS-Vz-P35" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="klb-Jw-2Hj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RCS-Vz-P35" secondAttribute="bottom" id="rbc-ZL-Z90"/>
                             <constraint firstItem="RCS-Vz-P35" firstAttribute="top" secondItem="Ae3-8Y-ZsQ" secondAttribute="bottom" symbolic="YES" id="sfk-ha-fqK"/>
@@ -67,7 +80,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="czI-1N-QJz"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="O35-C5-jfw" id="t4r-zR-1ro"/>
                         <outlet property="companyListTableView" destination="RCS-Vz-P35" id="VoF-X2-wxJ"/>
+                        <outlet property="errorLabel" destination="toY-Fh-tYa" id="WRP-GV-j2t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,26 +97,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bt4-YL-n2E">
-                                <rect key="frame" x="0.0" y="10" width="375" height="591"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bt4-YL-n2E">
+                                <rect key="frame" x="0.0" y="76" width="375" height="533"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ygm-Ok-XHD" id="IY1-Ng-EVX"/>
                                     <outlet property="delegate" destination="ygm-Ok-XHD" id="b1B-br-B5e"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSq-ZV-fdH">
-                                <rect key="frame" x="84" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo2-e9-ZST">
+                                <rect key="frame" x="0.0" y="617" width="187.5" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ork-yi-n1y"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="NAME SORT ⇵">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="nameSortTapped:" destination="ygm-Ok-XHD" eventType="touchUpInside" id="i0U-e4-LWU"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="054-6I-gfl">
+                                <rect key="frame" x="187.5" y="617" width="187.5" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.25882352939999997" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="AGE SORT ⇵">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="ageSortTapped:" destination="ygm-Ok-XHD" eventType="touchUpInside" id="E6f-0P-tkA"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" barStyle="black" placeholder="Name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1jL-4L-xSe">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Dga-9F-IhB"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ygm-Ok-XHD" id="XLf-x6-zMR"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="jo2-e9-ZST" firstAttribute="leading" secondItem="Qjw-Ng-1Xr" secondAttribute="leading" id="Gvb-k6-cRn"/>
+                            <constraint firstItem="bt4-YL-n2E" firstAttribute="top" secondItem="1jL-4L-xSe" secondAttribute="bottom" symbolic="YES" id="Qdd-3U-RRn"/>
+                            <constraint firstItem="1jL-4L-xSe" firstAttribute="leading" secondItem="Qjw-Ng-1Xr" secondAttribute="leading" id="SA0-bz-dYW"/>
+                            <constraint firstItem="Qjw-Ng-1Xr" firstAttribute="bottom" secondItem="jo2-e9-ZST" secondAttribute="bottom" id="SJx-Sh-Ixc"/>
+                            <constraint firstItem="bt4-YL-n2E" firstAttribute="leading" secondItem="Qjw-Ng-1Xr" secondAttribute="leading" id="TTb-SV-mr1"/>
+                            <constraint firstItem="1jL-4L-xSe" firstAttribute="top" secondItem="Qjw-Ng-1Xr" secondAttribute="top" id="X9R-Sj-sFP"/>
+                            <constraint firstItem="054-6I-gfl" firstAttribute="height" secondItem="jo2-e9-ZST" secondAttribute="height" id="YiA-S5-ccE"/>
+                            <constraint firstItem="jo2-e9-ZST" firstAttribute="width" secondItem="T5N-HZ-Vl4" secondAttribute="width" multiplier="0.5" id="aTU-qu-5QT"/>
+                            <constraint firstItem="bt4-YL-n2E" firstAttribute="trailing" secondItem="Qjw-Ng-1Xr" secondAttribute="trailing" id="e1h-Mn-Pkz"/>
+                            <constraint firstItem="054-6I-gfl" firstAttribute="bottom" secondItem="jo2-e9-ZST" secondAttribute="bottom" id="exh-eN-1z7"/>
+                            <constraint firstItem="Qjw-Ng-1Xr" firstAttribute="trailing" secondItem="054-6I-gfl" secondAttribute="trailing" id="fMv-mw-A8K"/>
+                            <constraint firstItem="1jL-4L-xSe" firstAttribute="trailing" secondItem="Qjw-Ng-1Xr" secondAttribute="trailing" id="hCw-w2-nEb"/>
+                            <constraint firstItem="jo2-e9-ZST" firstAttribute="top" secondItem="bt4-YL-n2E" secondAttribute="bottom" constant="8" symbolic="YES" id="ok9-dA-LZE"/>
+                            <constraint firstItem="054-6I-gfl" firstAttribute="width" secondItem="jo2-e9-ZST" secondAttribute="width" id="tih-af-xMt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Qjw-Ng-1Xr"/>
                     </view>
                     <connections>
+                        <outlet property="ageSortButton" destination="054-6I-gfl" id="WBc-qu-t8A"/>
                         <outlet property="memberTableView" destination="bt4-YL-n2E" id="Z62-Hy-DTK"/>
+                        <outlet property="nameSOrtButton" destination="jo2-e9-ZST" id="5K1-eB-C1n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94O-at-UIX" userLabel="First Responder" sceneMemberID="firstResponder"/>

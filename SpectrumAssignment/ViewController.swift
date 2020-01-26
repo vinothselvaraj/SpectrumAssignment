@@ -15,6 +15,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var companyList:[CompanyDetails] = []
     var filteredList:[CompanyDetails] = []
     @IBOutlet weak var companyListTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -57,12 +59,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             if follow{
                 cell.followButton.backgroundColor = UIColor.green
             }else{
-                cell.followButton.backgroundColor = UIColor.white
+                cell.followButton.backgroundColor = UIColor.black
             }
         }else{
 
             cell.followButton.isSelected = false
-            cell.followButton.backgroundColor = UIColor.white
+            cell.followButton.backgroundColor = UIColor.black
         }
         cell.companyImage.sd_setImage(with: URL(string: companyDetail!.logo), placeholderImage: UIImage(named: "placeholder.png"))
 
@@ -73,20 +75,38 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         tableView.deselectRow(at: indexPath, animated: true)
         let memberVC = self.storyboard?.instantiateViewController(withIdentifier: "Member") as! MemberViewController
-        memberVC.companyDetails = companyList[indexPath.row]
+        if companyListTableView.tag == 1 {
+            memberVC.companyDetails = filteredList[indexPath.row]
+        }else{
+            memberVC.companyDetails = companyList[indexPath.row]
+        }
+//        memberVC.selectedCompanyTag = indexPath.row
         self.navigationController?.pushViewController(memberVC, animated: true)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
+
         companyListTableView.tag = 0
         companyListTableView.reloadData()
 
     }
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if (searchBar.text?.isEmpty)! {
+            searchBar.returnKeyType = .default
+        }else{
+            searchBar.returnKeyType = .search
+        }
+
+    }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        
+        if (searchBar.text?.isEmpty)! {
+            return
+        }
         filteredList = companyList.filter({ value -> Bool in
             guard let text =  searchBar.text?.uppercased() else { return false}
             return value.company.contains(text) // According to title from JSON
@@ -104,7 +124,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if sender.isSelected {
             
             sender.isSelected = false
-            sender.backgroundColor = UIColor.white
+            sender.backgroundColor = UIColor.black
 
         }else{
             
@@ -142,39 +162,58 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             sender.isSelected = true
         }
-        let companyDetail:CompanyDetails = companyList[sender.tag]
-        companyDetail.favorite = sender.isSelected
         
-        print(companyDetail)
+        if companyListTableView.tag == 0 {
+            let companyDetail:CompanyDetails = companyList[sender.tag]
+            companyDetail.favorite = sender.isSelected
+            
+        }else{
+            
+            let companyDetail:CompanyDetails = filteredList[sender.tag]
+            companyDetail.favorite = sender.isSelected
+            
+            for obj in companyList{
+                
+                if obj._id == companyDetail._id{
+                    obj.favorite = sender.isSelected
+                    return
+                }
+            }
+            
+        }
+
     }
 
     @IBAction func sortingTapped(_ sender: UIButton) {
         
-        if sender.isSelected {
-            sender.isSelected = false
-            sender.setTitle("ASC⇧", for: .normal)
+        if companyList.count > 0{
             
-            companyList = companyList.sorted(by: { (item1, item2) -> Bool in
-                return item1.company.compare(item2.company) == ComparisonResult.orderedAscending
-            })
-
-            companyListTableView.reloadData()
-            let indexPath = IndexPath(row: 0, section: 0)
-            companyListTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-
-        }else{
-            sender.setTitle("DESC⇩", for: .normal)
-            sender.isSelected = true
-            companyList = companyList.sorted(by: { (item1, item2) -> Bool in
-                return item1.company.compare(item2.company) == ComparisonResult.orderedDescending
-            })
-            
-            companyListTableView.reloadData()
-            let indexPath = IndexPath(row: 0, section: 0)
-            companyListTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            if sender.isSelected {
+                sender.isSelected = false
+                sender.setTitle("ASC⇧", for: .normal)
+                
+                companyList = companyList.sorted(by: { (item1, item2) -> Bool in
+                    return item1.company.compare(item2.company) == ComparisonResult.orderedAscending
+                })
+                
+                companyListTableView.reloadData()
+                let indexPath = IndexPath(row: 0, section: 0)
+                companyListTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                
+            }else{
+                sender.setTitle("DESC⇩", for: .normal)
+                sender.isSelected = true
+                companyList = companyList.sorted(by: { (item1, item2) -> Bool in
+                    return item1.company.compare(item2.company) == ComparisonResult.orderedDescending
+                })
+                
+                companyListTableView.reloadData()
+                let indexPath = IndexPath(row: 0, section: 0)
+                companyListTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                
+            }
 
         }
-
         
     }
     override func viewDidLoad() {
@@ -183,18 +222,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         print("Hello")
         companyListTableView.register(UINib(nibName: "CompanyTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyTableViewCell")
 
-        self.title = "Companylist"
+        companyListTableView.isHidden = true
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.title = "SPECTRUM"
         networkManager.getCompanyDetails { (Response, error) in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
             if let error = error {
                 print("Get Response error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = "Error in loading..."
+                }
                 return
             }
             guard let Response = Response  else { return }
             
-            self.companyList = Response
+            CommomManager.CompanyListArray = Response
+            self.companyList = CommomManager.CompanyListArray
             print("Current Response Object:")
             print(Response)
             DispatchQueue.main.async {
+                self.companyListTableView.isHidden = false
                 self.companyListTableView.reloadData()
 
             }

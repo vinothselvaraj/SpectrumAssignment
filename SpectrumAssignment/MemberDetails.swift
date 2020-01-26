@@ -14,6 +14,6 @@ class MemberDetails:Codable {
     let name:name
     let email:String
     let phone:String
-    let favorite:Bool?
+    var favorite:Bool?
 }
 

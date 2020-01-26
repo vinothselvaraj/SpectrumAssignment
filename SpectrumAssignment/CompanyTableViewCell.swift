@@ -11,7 +11,7 @@ import UIKit
 class CompanyTableViewCell: UITableViewCell {
     @IBOutlet weak var companyImage: UIImageView!
     @IBOutlet weak var companyName: UILabel!
-    @IBOutlet weak var companyWebsite: UILabel!
+    @IBOutlet weak var companyWebsite: UITextView!
     @IBOutlet weak var companyDescription: UILabel!
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
@@ -25,7 +25,7 @@ class CompanyTableViewCell: UITableViewCell {
         followButton.layer.borderColor = (UIColor.green).cgColor
 
         companyImage.layer.masksToBounds = true
-        companyImage.layer.cornerRadius = companyImage.frame.size.width/2        
+        companyImage.layer.cornerRadius = companyImage.frame.size.width/2
         
     }
 

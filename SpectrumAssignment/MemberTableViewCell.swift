@@ -12,7 +12,9 @@ class MemberTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var PhoneText: UITextView!
     @IBOutlet weak var emailText: UITextView!
-    @IBOutlet weak var favImage: UIImageView!
+    @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var ageLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
